@@ -1,0 +1,5 @@
+Pillow
+pyscreenshot
+pytesseract
+pywin32
+pynput
