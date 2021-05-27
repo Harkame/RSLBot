@@ -95,8 +95,8 @@ def check_market():
             time.sleep(1)
             confirm()
 
-        # os.remove(file_name)
-        # os.remove(file_name_2)
+        os.remove(file_name)
+        os.remove(file_name_2)
 
 
 def run(argv):
