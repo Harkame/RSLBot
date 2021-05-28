@@ -1,4 +1,7 @@
 # RSLBot
+
+IN DEV
+
 Raid Shadow Legend bot based on image treatment
 
 ## Installation
