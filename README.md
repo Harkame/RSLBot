@@ -13,11 +13,15 @@ pip install -r requirements.txt
 
 ## Usage
 
+Game window should take entire left part of the screen like in the next screenshot
+
+![Screenshot](https://github.com/Harkame/RSLBot/blob/main/splitted.png "Game window")
+
 Supported resolutions
 
 - 1920x1080
 - 2560x1440
 
-![Screenshot](https://github.com/Harkame/RSLBot/blob/main/splitted.png "Game window")
-
 ### Market shards
+
+Open the market
