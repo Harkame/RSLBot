@@ -13,9 +13,6 @@ from PIL import Image
 from win32api import GetSystemMetrics
 import os
 
-pytesseract.pytesseract.tesseract_cmd = (
-    f"D:\\Program Files\\Tesseract-OCR\\tesseract.exe"
-)
 
 width = GetSystemMetrics(0)
 height = GetSystemMetrics(1)

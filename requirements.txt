@@ -3,3 +3,5 @@ pyscreenshot
 pytesseract
 pywin32
 pynput
+opencv-python
+pyautogui
