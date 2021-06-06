@@ -12,7 +12,9 @@ import numpy as np
 from PIL import Image
 from win32api import GetSystemMetrics
 import os
-
+import pygetwindow as gw
+from win32api import GetMonitorInfo, MonitorFromPoint
+import numpy
 
 width = GetSystemMetrics(0)
 height = GetSystemMetrics(1)
@@ -96,6 +98,41 @@ def check_market():
         os.remove(file_name_2)
 
 
+def resize():
+
+    global width
+    global height
+
+    monitor_info = GetMonitorInfo(MonitorFromPoint((0, 0)))
+    monitor_area = monitor_info.get("Monitor")
+    work_area = monitor_info.get("Work")
+    taskbar_height = int(monitor_area[3] - work_area[3])
+
+    window = gw.getWindowsWithTitle("Raid: Shadow Legends")[0]
+
+    window.activate()
+
+    window.resizeTo(int(width / 2), int(height - taskbar_height))
+    window.moveTo(0, 0)
+
+
+def is_popup_displayed():
+    image1 = ImageGrab.grab(bbox=(900, 1200, 901, 1201))
+    image1.save("popup.png")
+    im = Image.open("popup.png")
+    pix = im.load()
+
+    return pix[0, 0][0] < 50 and pix[0, 0][1] < 65 and pix[0, 0][2] < 75
+
+
+def close_popup():
+    pyautogui.click(900, 1200)
+
+
+def get_current_position():
+    pass
+
+
 def run(argv):
     global width
     global height
@@ -104,7 +141,15 @@ def run(argv):
         width = int(argv[1])
         height = int(argv[2])
 
-    set_interval(check_market, 10)
+    # resize()
+
+    while is_popup_displayed():
+        close_popup()
+        time.sleep(2)
+
+    check_market()
+
+    # set_interval(check_market, 5)
 
 
 if __name__ == "__main__":
